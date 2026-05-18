@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>My Blog</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        {% if post %}
+            <div class="post">
+                <h2>{{ post.title }}</h2>
+                <h3>{{ post.subtitle }}</h3>
+                <p class="meta">By {{ post.author }} | {{ post.date }}</p>
+                <p>{{ post.body }}</p>
+            </div>
+        {% else %}
+            {% for blog_post in all_posts %}
+                <div class="post">
+                    <h2>{{ blog_post.title }}</h2>
+                    <h3>{{ blog_post.subtitle }}</h3>
+                    <p class="meta">By {{ blog_post.author }} | {{ blog_post.date }}</p>
+                    <a href="/post/{{ blog_post.id }}">Read More</a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>
