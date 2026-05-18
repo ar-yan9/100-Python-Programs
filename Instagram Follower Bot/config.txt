@@ -1,0 +1,3 @@
+USERNAME = "your_instagram_username"  
+PASSWORD = "your_instagram_password"  
+SIMILAR_ACCOUNT = "account_to_get_followers_from" 
